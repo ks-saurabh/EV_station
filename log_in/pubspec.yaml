@@ -41,6 +41,8 @@ dependencies:
   #shared_preferences:
   shared_preferences: ^2.2.2
   google_maps_flutter: ^2.5.3
+  geocoding: ^2.1.0
+  geolocator: ^9.0.2
 
 dev_dependencies:
   flutter_test:
