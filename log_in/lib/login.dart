@@ -3,6 +3,7 @@ import 'package:log_in/ui_helper.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:log_in/home.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:log_in/mapPage.dart';
 
 class MyLogin extends StatefulWidget {
   const MyLogin({Key? key}) : super(key: key);
@@ -25,12 +26,8 @@ class _MyLoginState extends State<MyLogin> {
         usercredential = await FirebaseAuth.instance
             .signInWithEmailAndPassword(email: email, password: password)
             .then((value) {
-          Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => HomePage(
-                        title: 'flutter',
-                      )));
+              Navigator.pushNamed(context, 'map');
+          
         });
       } on FirebaseAuthException catch (ex) {
         return UiHelper.customAlertBox(context, ex.code.toString());
