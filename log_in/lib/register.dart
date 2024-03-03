@@ -25,8 +25,20 @@ class _MyRegisterState extends State<MyRegister> {
         usercredential = await FirebaseAuth.instance
             .createUserWithEmailAndPassword(email: email, password: password)
             .then((value) {
-          UiHelper.customAlertBox(context, AppLocalizations.of(context)!.created);
-        });
+       showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text(AppLocalizations.of(context)!.created),
+            actions: [
+              TextButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context,'map');
+                  },
+                  child: Text("OK"))
+            ],
+          );
+        }  );});
       } on FirebaseAuthException catch (ex) {
         return UiHelper.customAlertBox(context, ex.code.toString());
       }
@@ -134,7 +146,8 @@ class _MyRegisterState extends State<MyRegister> {
                                     color: Color.fromARGB(255, 0, 255, 123),
                                   ),
                                 ),
-                                hintText: AppLocalizations.of(context)!.password,
+                                hintText:
+                                    AppLocalizations.of(context)!.password,
                                 hintStyle: TextStyle(color: Colors.white),
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
