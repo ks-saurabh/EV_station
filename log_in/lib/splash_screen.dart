@@ -6,6 +6,7 @@ import 'package:log_in/ui_helper.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:log_in/home.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:log_in/mapPage.dart';
 
 class Mysplash extends StatefulWidget {
   const Mysplash({Key? key}) : super(key: key);
@@ -23,10 +24,24 @@ class _MysplashState extends State<Mysplash>
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
   
     Future.delayed(Duration(seconds: 3), () {
-      Navigator.of(context).pushReplacement(MaterialPageRoute(
+      
+if (FirebaseAuth.instance.currentUser != null) {
+     Navigator.of(context).pushReplacement(MaterialPageRoute(
+        builder: (_) =>   SimpleMap(),
+      ),
+       ); 
+
+
+} else {
+   Navigator.of(context).pushReplacement(MaterialPageRoute(
         builder: (_) => const MyLogin(),
-        ),
-      );
+      ),
+       );  
+}
+
+ 
+
+
     });
   }
 
