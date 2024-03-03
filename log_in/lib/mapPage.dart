@@ -61,8 +61,10 @@ class _SimpleMapState extends State<SimpleMap> {
       myMarker.add(Marker(
           markerId: MarkerId('Second'),
           position: LatLng(value.latitude, value.longitude),
+          
           infoWindow: const InfoWindow(
-            title: 'My Current Location',
+            title: 'Current Location',
+            
           )));
       CameraPosition cameraPosition = CameraPosition(
         target: LatLng(value.latitude, value.longitude),

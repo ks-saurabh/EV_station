@@ -142,7 +142,10 @@ class _MyLoginState extends State<MyLogin> {
                                 style: ButtonStyle(),
                               ),
                               TextButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                     Navigator.pushNamed(context, 'resetPassword')  ;                   
+
+                                  },
                                   child: Text(
                                     AppLocalizations.of(context)!.fpassword,
                                     style: TextStyle(
