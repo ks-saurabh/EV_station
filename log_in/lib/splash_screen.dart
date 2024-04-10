@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
-import 'package:log_in/login.dart';
-import 'package:log_in/ui_helper.dart';
+import 'package:log_in/Users%20servies/login.dart';
+import 'package:log_in/Helpers/ui_helper.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:log_in/home.dart';
+import 'package:log_in/Helpers/home.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:log_in/mapPage.dart';
+import 'package:log_in/Maps/mapPage.dart';
 
 class Mysplash extends StatefulWidget {
   const Mysplash({Key? key}) : super(key: key);
